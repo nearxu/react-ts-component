@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {FCCounter} from '../function';
 
 interface InjectProps {
     count:number;
@@ -28,3 +29,5 @@ export const withState = <BaseProps extends InjectProps>(
         }
     }
 }
+
+export const FCCount = withState(FCCounter);
