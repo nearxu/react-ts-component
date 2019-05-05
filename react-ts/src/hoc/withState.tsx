@@ -1,33 +1,30 @@
 import * as React from 'react';
-import {FCCounter} from '../function';
 
 interface InjectProps {
-    count:number;
-    onIncrease:()=> void;
+    count: number;
+    onIncrease: () => void;
 }
 
 export const withState = <BaseProps extends InjectProps>(
-    _BaseComponent:React.ComponentType<BaseProps>
-) =>{
+    _BaseComponent: React.ComponentType<BaseProps>
+) => {
     const BaseComponent = _BaseComponent as React.ComponentType<InjectProps>
     // type HocProps = ;
     type HocState = {
-        readonly count:number;
+        readonly count: number;
     }
-    return class Hoc extends React.Component<{},HocState>{
-        readonly state:HocState ={
-            count:0
+    return class Hoc extends React.Component<{}, HocState>{
+        readonly state: HocState = {
+            count: 0
         }
         handleCount = () => {
-            this.setState({count:this.state.count+1});
+            this.setState({ count: this.state.count + 1 });
         }
-        render(){
-            const {count} = this.state;
+        render() {
+            const { count } = this.state;
             return (
-                <BaseComponent count={count} onIncrease={this.handleCount}/>
+                <BaseComponent count={count} onIncrease={this.handleCount} />
             )
         }
     }
 }
-
-export const FCCount = withState(FCCounter);
