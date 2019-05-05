@@ -2,7 +2,7 @@ import * as React from 'react';
 
 interface InjectProps {
     count: number;
-    onIncrease: () => void;
+    onAdd: () => void;
 }
 
 export const withState = <BaseProps extends InjectProps>(
@@ -23,7 +23,7 @@ export const withState = <BaseProps extends InjectProps>(
         render() {
             const { count } = this.state;
             return (
-                <BaseComponent count={count} onIncrease={this.handleCount} />
+                <BaseComponent count={count} onAdd={this.handleCount} />
             )
         }
     }

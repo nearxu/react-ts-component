@@ -17,7 +17,7 @@ export interface IUser {
 }
 
 export class User implements IUser {
-  id: string = '090';
+  id: string = Math.random().toString();
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }

@@ -1,19 +1,19 @@
 import * as React from 'react';
 
-interface IProps{
+interface IProps {
   label: string;
 };
 
-interface IState{
+interface IState {
   count: number;
 };
 
 export class ClassCounter extends React.Component<IProps, IState> {
-  readonly state: IState = {
+  public state: IState = {
     count: 0,
   };
 
-  handleIncrement = () => {
+  public handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
   };
 
@@ -37,19 +37,19 @@ export class ClassCounter extends React.Component<IProps, IState> {
 
 // Generic Components
 export interface GenericListProps<T> {
-    items: T[];
-    itemRenderer: (item: T) => JSX.Element;
+  items: T[];
+  itemRenderer: (item: T) => JSX.Element;
+}
+
+export class GenericList<T> extends React.Component<GenericListProps<T>, {}> {
+  render() {
+    const { items, itemRenderer } = this.props;
+
+    return (
+      <div>
+        {items.map(itemRenderer)}
+      </div>
+    );
   }
-  
-  export class GenericList<T> extends React.Component<GenericListProps<T>, {}> {
-    render() {
-      const { items, itemRenderer } = this.props;
-  
-      return (
-        <div>
-          {items.map(itemRenderer)}
-        </div>
-      );
-    }
-  }
-  
+}
+

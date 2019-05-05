@@ -9,8 +9,8 @@ type Themes = {
 
 export const themes: Themes = {
     dark: {
-        color: 'block',
-        backgroundColor: 'white'
+        color: 'red',
+        backgroundColor: 'block'
     },
     light: {
         color: 'white',

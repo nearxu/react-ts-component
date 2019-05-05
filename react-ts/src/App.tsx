@@ -1,23 +1,27 @@
 import * as React from 'react';
-import { FcCount, FCAttr } from './function';
+import { UseFun } from './function/use';
 import ClassComponent from './class/use';
+import { ContextUse } from './context/use';
+import { FcCountWithState } from './hoc/use';
+import { HookComponent } from './hook/use';
+import { UseRedux } from './redux/count';
 
 class App extends React.Component {
-  public state = {
-    count: 0,
-
-  }
-  public handleAdd = () => {
-    const { count } = this.state;
-    this.setState({ count: count + 1 })
-  }
   public render() {
-    const { count } = this.state;
     return (
       <div className="App">
-        <FcCount count={count} onAdd={this.handleAdd} />
-        <FCAttr className="Hllo-attr" style={{ "color": "red" }}>hello attr</FCAttr>
+        <p>use fun</p>
+        <UseFun />
+        <p>use class</p>
         <ClassComponent />
+        <p>use context</p>
+        <ContextUse />
+        <p>use hoc</p>
+        <FcCountWithState />
+        <p>use hook</p>
+        <HookComponent />
+        <p>use redux count</p>
+        <UseRedux />
       </div>
     );
   }
