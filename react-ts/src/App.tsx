@@ -5,6 +5,7 @@ import { ContextUse } from './context/use';
 import { FcCountWithState } from './hoc/use';
 import { HookComponent } from './hook/use';
 import { UseRedux } from './redux/count';
+import { TodoApp } from './redux/todos';
 
 class App extends React.Component {
   public render() {
@@ -22,6 +23,8 @@ class App extends React.Component {
         <HookComponent />
         <p>use redux count</p>
         <UseRedux />
+        <p>use redux todos</p>
+        <TodoApp />
       </div>
     );
   }

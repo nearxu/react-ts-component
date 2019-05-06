@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect, Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, Dispatch } from 'redux';
 import { FcCount } from '../function/index'
 // constans
 export const ADD = "ADD";
@@ -10,6 +10,11 @@ export const ADDASYNC = "ADDASYNC"
 export const add = () => ({
   type: ADD
 })
+
+// async
+export const onAddAsync = (dispatch: Dispatch) => {
+  setTimeout(() => dispatch(add()), 2000)
+}
 
 const initState = {
   count: 1
@@ -24,18 +29,18 @@ export function reducer(state = initState, action: any) {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+interface State {
+  count: number
+}
+const mapStateToProps = (state: State) => ({
   count: state.count
 })
 
-const mapDispatchToProps = (dispatch: any) => {
-  onAdd: () => dispatch(add())
-}
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  onAdd: () => dispatch(add()),
+  onAddAsync: () => onAddAsync(dispatch)
+});
 
-// const State = {
-//   count:0,
-//   onAdd:() => void
-// }
 
 // store
 const store = createStore(reducer);
@@ -47,7 +52,7 @@ const UseCount = connect(mapStateToProps, mapDispatchToProps)(FcCount)
 console.log(UseCount, 'useCount')
 export const UseRedux = () =>
   <Provider store={store}>
-    <div>hello provider </div>
+    <div>hello provider <UseCount /></div>
   </Provider>
 
 
