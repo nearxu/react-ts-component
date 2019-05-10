@@ -6,12 +6,12 @@ import { FcCountWithState } from './hoc/use';
 import { HookComponent } from './hook/use';
 import { UseRedux } from './redux/count';
 import { TodoApp } from './redux/todos';
-
+import From from './form';
 class App extends React.Component {
   public render() {
     return (
       <div className="App">
-        <p>use fun</p>
+        {/* <p>use fun</p>
         <UseFun />
         <p>use class</p>
         <ClassComponent />
@@ -24,7 +24,8 @@ class App extends React.Component {
         <p>use redux count</p>
         <UseRedux />
         <p>use redux todos</p>
-        <TodoApp />
+        <TodoApp /> */}
+        <From />
       </div>
     );
   }
