@@ -7,6 +7,8 @@ import { HookComponent } from './hook/use';
 import { UseRedux } from './redux/count';
 import { TodoApp } from './redux/todos';
 import From from './form';
+import Modal from './model';
+
 class App extends React.Component {
   public render() {
     return (
@@ -25,7 +27,7 @@ class App extends React.Component {
         <UseRedux />
         <p>use redux todos</p>
         <TodoApp /> */}
-        <From />
+        <Modal />
       </div>
     );
   }

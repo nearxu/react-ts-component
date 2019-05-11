@@ -17,22 +17,24 @@ export default function FormField(props: Props) {
 
   const store = React.useContext(FormStoreContext);
 
-  // const [value, setValue] = React.useState(name && store ? store.get(name) : undefined)
+  const [value, setValue] = React.useState(name && store ? store.get(name) : undefined)
 
+  const [error, setError] = React.useState(name && store ? store.error(name) : undefined)
   const onChange = React.useCallback(
     (...args) => name && store && store.set(name, valueGetter(...args)),
     [name, store, valueGetter]
   )
 
-  // useFieldChange(store, name, () => {
-  //   setValue(store!.get(name!))
-  // })
+  useFieldChange(store, name, () => {
+    setValue(store!.get(name!))
+    setError(store!.error(name!))
+  })
 
   let child: any = children;
   if (name && store && React.isValidElement(child)) {
     // valueProp = value;
     const prop = getPropName(valueProp, child && child.type)
-    const childrenProps = { [prop]: valueProp, onChange }
+    const childrenProps = { [prop]: value, onChange }
     child = React.cloneElement(child, childrenProps)
   }
 
@@ -42,7 +44,8 @@ export default function FormField(props: Props) {
         <div>{label}</div>
       )}
       <div>
-        {child}
+        <div>{child}</div>
+        {error && <div>{error}</div>}
       </div>
     </div>
   )
