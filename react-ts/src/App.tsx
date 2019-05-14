@@ -8,6 +8,9 @@ import { UseRedux } from './redux/count';
 import { TodoApp } from './redux/todos';
 import From from './form';
 import Modal from './model';
+import { VsFunction } from './hoc-vs-render/use';
+
+import { UseCount } from './countdown/use';
 
 class App extends React.Component {
   public render() {
@@ -26,8 +29,10 @@ class App extends React.Component {
         <p>use redux count</p>
         <UseRedux />
         <p>use redux todos</p>
-        <TodoApp /> */}
+        <TodoApp /> 
         <Modal />
+        */}
+        <UseCount />
       </div>
     );
   }
