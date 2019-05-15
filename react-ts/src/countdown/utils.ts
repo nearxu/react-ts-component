@@ -12,22 +12,36 @@ export const timeDeltaFormatOptionsDefaults: CountdownTimeDeltaFormatOptions = {
   zeroPadDays: 2
 };
 
+export function formatZero(num: number): string {
+  if (num < 10) {
+    return '0' + num
+  }
+  return num.toString()
+}
 export function formatTimeDelete(delte: CountdownTimeDelete, options?: CountdownTimeDeltaFormatOptions) {
   const { days, hours, minutes, seconds } = delte;
-  const { daysInHours, zeroPadTime, zeroPadDays } = {
-    ...timeDeltaFormatOptionsDefaults,
-    ...options,
-  }
-  const formattedHours = daysInHours
-    ? zeroPad(hours + days * 24, zeroPadTime)
-    : zeroPad(hours, Math.min(2, zeroPadTime));
+  console.log(days, hours, minutes, seconds, 'seconds');
 
+  // const { daysInHours, zeroPadTime, zeroPadDays } = {
+  //   ...timeDeltaFormatOptionsDefaults,
+  //   ...options,
+  // }
+  // const formattedHours = daysInHours
+  //   ? zeroPad(hours + days * 24, zeroPadTime)
+  //   : zeroPad(hours, Math.min(2, zeroPadTime));
+
+  // return {
+  //   days: daysInHours ? '' : zeroPad(days, zeroPadDays),
+  //   hours: formattedHours,
+  //   minutes: zeroPad(minutes, Math.min(2, zeroPadTime)),
+  //   seconds: zeroPad(seconds, Math.min(2, zeroPadTime)),
+  // };
   return {
-    days: daysInHours ? '' : zeroPad(days, zeroPadDays),
-    hours: formattedHours,
-    minutes: zeroPad(minutes, Math.min(2, zeroPadTime)),
-    seconds: zeroPad(seconds, Math.min(2, zeroPadTime)),
-  };
+    days,
+    hours,
+    minutes,
+    seconds
+  }
 
 }
 

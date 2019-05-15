@@ -31,8 +31,8 @@ class App extends React.Component {
         <p>use redux todos</p>
         <TodoApp /> 
         <Modal />
-        */}
         <UseCount />
+        */}
       </div>
     );
   }
