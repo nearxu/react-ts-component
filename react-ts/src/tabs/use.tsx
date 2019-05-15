@@ -3,7 +3,7 @@ import { Tab, TabList, Tabs, TabPanel } from './index'
 
 export default function TabExample() {
   return (
-    <Tabs defaultTabId='home'>
+    <Tabs defaultId='home' selectId="home">
       <TabList>
         <Tab id='home'>React context tabs</Tab>
         <Tab id='about'>What is it?</Tab>

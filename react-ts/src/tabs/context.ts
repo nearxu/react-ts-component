@@ -1,7 +1,7 @@
-import * as React from 'react'
+import * as React from 'react';
 
 interface Context {
-  selectId: number,
+  selectId?: number|string,
   setSelectId: (id: number) => void
 }
 

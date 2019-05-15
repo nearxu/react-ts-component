@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Consumer } from './context';
 
 interface Props {
-  id: number,
+  id: number|string,
   children: React.ReactNode
 }
 
