@@ -1,17 +1,18 @@
 import * as React from 'react'
 import { Provider } from './context'
+import { id } from './typeId'
 
 export interface Props {
-  onChange?: (nextId: number, preId: number) => void;
-  selectId?:number|string;
+  onChange?: (nextId: id, preId: id) => void;
+  selectId?: id;
+  defaultId?: id;
   children?: React.ReactNode;
-  defaultId?:number|string
 }
 
 export function TabControll(props: Props) {
-  const setSelectId = (id: number) => {
+  const setSelectId = (id: id) => {
     const { onChange, selectId } = props;
-    if(onChange && selectId) {
+    if (onChange && selectId) {
       onChange(id, selectId)
     }
   }

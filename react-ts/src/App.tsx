@@ -11,7 +11,7 @@ import Modal from './model';
 import { VsFunction } from './hoc-vs-render/use';
 
 import { UseCount } from './countdown/use';
-import TabExample from './tabs/use' 
+import { TabsExample } from './tabs/v2/use'
 class App extends React.Component {
   public render() {
     return (
@@ -33,7 +33,7 @@ class App extends React.Component {
         <Modal />
         <UseCount />
         */}
-        <TabExample />
+        <TabsExample />
       </div>
     );
   }
